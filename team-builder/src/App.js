@@ -41,8 +41,8 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Form addNewForm = {addNewForm} />
-      <MemberCard MemberCard = {form} />
+      <Form formAttr = {addNewForm} />
+      <MemberCard MemberCardattr = {form} />
     </div>
   );
 }
