@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Form from './Form.js';
+import MemberCard from './MemberCard';
 
 function App() {
+
+  const [form, setForm] = useState([
+    {
+      id: 1,
+      name: "Sathya",
+      email: "sathyaganesan.b2w@gmail.com",
+      role: "UI Designer"
+    }
+  ]);
+
+  const addNewForm = (formData) => {
+    const newForm = {
+      id: Date.now(),
+      name: formData.name,
+      email: formData.email,
+      role: formData.role
+    }
+    setForm([...form, newForm]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,7 +40,9 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <Form addNewForm = {addNewForm} />
+      <MemberCard MemberCard = {form} />
     </div>
   );
 }
